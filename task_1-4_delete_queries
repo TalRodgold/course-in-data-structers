@@ -1,0 +1,14 @@
+DELETE FROM Visitor
+WHERE gro_num = 2;
+
+
+DELETE FROM Facility
+WHERE fac_num_of_staff < 5;
+
+
+DELETE FROM Ticket
+WHERE emp_id = 100;
+
+
+DELETE FROM Employee
+WHERE dep_num = 2;
