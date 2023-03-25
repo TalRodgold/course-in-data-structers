@@ -1,0 +1,18 @@
+UPDATE Activity
+SET act_name = 'Juggling clown'
+WHERE act_num = 1;
+
+
+UPDATE Facility
+SET fac_age_restriction_ = 18
+WHERE fac_num = 2;
+
+
+UPDATE Toilet
+SET toi_num_of_cells = 4
+WHERE toi_num = 3;
+
+
+UPDATE Employee
+SET dep_num = 2
+WHERE emp_id = 100;
