@@ -1,0 +1,14 @@
+INSERT INTO Area (are_num, are_name)
+VALUES (5, 'entrance');
+
+
+INSERT INTO Activity (act_num, act_name, act_num_of_staff, are_num)
+VALUES (4, 'rope_walking', 2, 3);
+
+
+INSERT INTO Employee (emp_id, emp_name, emp_phone, dep_num)
+VALUES (101, 'Jane Doe', 5551234, 1);
+
+
+INSERT INTO Toilet (toi_num, toi_num_of_cells, toi_handicap, are_num)
+VALUES (4, 2, 'Yes', 3);
