@@ -1,0 +1,95 @@
+CREATE TABLE Area
+(
+  are_num INT NOT NULL,
+  are_name VARCHAR NOT NULL,
+  PRIMARY KEY (are_num)
+);
+
+CREATE TABLE Activity
+(
+  act_num INT NOT NULL,
+  act_name VARCHAR NOT NULL,
+  act_num_of_staff INT NOT NULL,
+  are_num INT NOT NULL,
+  PRIMARY KEY (act_num),
+  FOREIGN KEY (are_num) REFERENCES Area(are_num)
+);
+
+CREATE TABLE Facility
+(
+  fac_num INT NOT NULL,
+  fac_name VARCHAR NOT NULL,
+  fac_age_restriction_ FLOAT NOT NULL,
+  fac_num_of_staff INT NOT NULL,
+  are_num INT NOT NULL,
+  PRIMARY KEY (fac_num),
+  FOREIGN KEY (are_num) REFERENCES Area(are_num)
+);
+
+CREATE TABLE Group
+(
+  gro_num INT NOT NULL,
+  PRIMARY KEY (gro_num)
+);
+
+CREATE TABLE Department
+(
+  dep_name VARCHAR NOT NULL,
+  dep_num INT NOT NULL,
+  PRIMARY KEY (dep_num)
+);
+
+CREATE TABLE Employee
+(
+  emp_id INT NOT NULL,
+  emp_name VARCHAR NOT NULL,
+  emp_phone INT NOT NULL,
+  dep_num INT NOT NULL,
+  PRIMARY KEY (emp_id),
+  FOREIGN KEY (dep_num) REFERENCES Department(dep_num)
+);
+
+CREATE TABLE Toilet
+(
+  toi_num INT NOT NULL,
+  toi_num_of_cells INT NOT NULL,
+  toi_handicap VARCHAR NOT NULL,
+  are_num INT NOT NULL,
+  PRIMARY KEY (toi_num),
+  FOREIGN KEY (are_num) REFERENCES Area(are_num)
+);
+
+CREATE TABLE Food_Vendor
+(
+  foo_name VARCHAR NOT NULL,
+  foo_num INT NOT NULL,
+  foo_type VARCHAR NOT NULL,
+  are_num INT NOT NULL,
+  PRIMARY KEY (foo_num),
+  FOREIGN KEY (are_num) REFERENCES Area(are_num)
+);
+
+CREATE TABLE Visitor
+(
+  vis_age FLOAT NOT NULL,
+  vis_id INT NOT NULL,
+  vis_name VARCHAR NOT NULL,
+  gro_num INT NOT NULL,
+  PRIMARY KEY (vis_id),
+  FOREIGN KEY (gro_num) REFERENCES Group(gro_num)
+);
+
+CREATE TABLE Ticket
+(
+  tic_num INT NOT NULL,
+  tic_price FLOAT NOT NULL,
+  tic_date DATE NOT NULL,
+  vis_id INT NOT NULL,
+  emp_id INT NOT NULL,
+  are_num INT NOT NULL,
+  PRIMARY KEY (tic_num),
+  FOREIGN KEY (vis_id) REFERENCES Visitor(vis_id),
+  FOREIGN KEY (emp_id) REFERENCES Employee(emp_id),
+  FOREIGN KEY (are_num) REFERENCES Area(are_num),
+  UNIQUE (tic_date)
+);
