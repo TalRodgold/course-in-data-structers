@@ -1,0 +1,18 @@
+SELECT *
+FROM Visitor
+WHERE gro_num = 1;
+
+
+SELECT fac_name, fac_age_restriction_
+FROM Facility
+WHERE are_num = 3;
+
+
+SELECT foo_name, foo_num
+FROM Food_Vendor
+WHERE are_num = 2;
+
+
+SELECT tic_num, tic_price
+FROM Ticket
+WHERE tic_date = '2022-03-01';
